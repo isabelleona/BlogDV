@@ -28,6 +28,8 @@ INSTALLED_APPS = [
 
     'core',
 
+    'blog',
+
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -38,7 +40,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     #Corsheaders
-    "corsheaders.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
