@@ -9,15 +9,12 @@ from .serializers import PostSerializer
 class BlogListView(APIView):
     def get(self, request, *args, **kwargs):
         posts = Post.postobjects.all()[0:4]
-
-        serializer = Post(posts,many=True)
-
+        serializer = PostSerializer(posts,many=True)
         return Response(serializer.data)
 
 
 class PostDetailView(APIView):
-    def get(self, request, post_slug, *args, **kwargs):
+    def get(self, request, post_slug,*args, **kwargs):
         post = get_object_or_404(Post, slug=post_slug)
-
         serializer = PostSerializer(post)
         return Response(serializer.data)
